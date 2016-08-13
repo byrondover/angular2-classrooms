@@ -1,0 +1,46 @@
+<div class="error" *ngIf="error">{{error}}</div>
+
+<div class="student-list">
+  <md-nav-list>
+    <a md-list-item *ngFor="let student of students" (click)="gotoStudentDetail(student)">
+      <img md-list-avatar *ngIf="student.picture" src="..." alt="...">
+      <md-icon md-list-icon *ngIf="!student.picture">person_outline</md-icon>
+      <span md-line>{{ student.first_name }} {{ student.last_name }}</span>
+      <button md-icon-button (click)="deleteStudent(student, $event)">
+        <md-icon align="end" class="delete-icon red">delete</md-icon>
+      </button>
+    </a>
+  </md-nav-list>
+</div>
+
+<div class="add-student">
+  <div class="add-button">
+    <button md-fab color="primary" (click)="toggleForm()">
+      <md-icon>add</md-icon>
+    </button>
+  </div>
+
+  <div class="form" *ngIf="formShowing">
+    <form #studentForm="ngForm">
+      <md-card>
+        <md-card-title>Add student</md-card-title>
+        <md-card-content>
+          <table style="width: 100%" cellspacing="0">
+            <tr>
+              <td><md-input [(ngModel)]="student.first_name" name="first_name" placeholder="First name" required></md-input></td>
+              <td><md-input [(ngModel)]="student.last_name" name="last_name" placeholder="Last name"></md-input></td>
+            </tr>
+          </table>
+          <md-radio-group [(ngModel)]="student.gender" name="gender">
+            <md-radio-button value="Male">Male</md-radio-button>
+            <md-radio-button value="Female">Female</md-radio-button>
+          </md-radio-group>
+        </md-card-content>
+        <md-card-actions align="end">
+          <button md-button (click)="toggleForm()" type="button">CANCEL</button>
+          <button md-raised-button (click)="addStudent()" color="accent" [disabled]="!studentForm.form.valid" type="submit">ADD</button>
+        </md-card-actions>
+      </md-card>
+    </form>
+  </div>
+</div>

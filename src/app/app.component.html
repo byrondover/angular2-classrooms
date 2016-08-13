@@ -1,3 +1,24 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout fullscreen class="classrooms">
+  <md-sidenav #sidenav>
+    <md-nav-list>
+      <!-- ><a md-list-item *ngFor="let view of views" [routerLink]="[{{view.link}}]"> -->
+      <a md-list-item *ngFor="let view of views" [routerLink]="[view.link]">
+        <md-icon md-list-icon>{{view.icon}}</md-icon>
+        <span md-line>{{view.name}}</span>
+        <span md-line class="secondary">{{view.description}}</span>
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.open()">
+      <md-icon>menu</md-icon>
+    </button>
+    <span class="title">
+      {{title}}
+    </span>
+  </md-toolbar>
+  <!-- Routed views go here -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-layout>

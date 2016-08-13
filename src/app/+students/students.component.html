@@ -1,0 +1,12 @@
+<div class="card-container">
+  <md-card *ngFor="let student of students">
+    <img md-card-image [alt]="student.name" src="https://material.angularjs.org/material2_assets/ngconf/{{student.name}}.png">
+    <md-card-title>{{student.name}}</md-card-title>
+    <md-card-content class="secondary">
+      Very ipsum such dolor amet wow many beta much develop so picture much beta such spans so develop so excuse so margin many border many develop.
+    </md-card-content>
+    <md-card-actions align="end">
+      <button md-button color="primary">EDIT</button>
+    </md-card-actions>
+  </md-card>
+</div>
