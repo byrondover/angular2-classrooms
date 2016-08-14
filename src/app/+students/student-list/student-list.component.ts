@@ -1,15 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MdUniqueSelectionDispatcher } from '@angular2-material/core';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
-import { MdCheckbox } from '@angular2-material/checkbox';
-import { MdIcon } from '@angular2-material/icon';
-import { MdInput } from '@angular2-material/input';
-import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
-import { MD_RADIO_DIRECTIVES } from '@angular2-material/radio';
-
 import { Student } from '../shared/student.model';
 import { StudentService } from '../shared/student.service';
 
@@ -17,20 +8,7 @@ import { StudentService } from '../shared/student.service';
   moduleId: module.id,
   selector: 'app-student-list',
   templateUrl: 'student-list.component.html',
-  styleUrls: ['student-list.component.css'],
-  directives: [
-    MD_BUTTON_DIRECTIVES,
-    MD_CARD_DIRECTIVES,
-    MD_LIST_DIRECTIVES,
-    MD_RADIO_DIRECTIVES,
-    MdCheckbox,
-    MdIcon,
-    MdInput
-  ],
-  providers: [
-    MdUniqueSelectionDispatcher,
-    StudentService
-  ]
+  styleUrls: ['student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
   title = 'Students';
@@ -79,7 +57,6 @@ export class StudentListComponent implements OnInit {
   }
 
   gotoStudentDetail(student: Student) {
-    console.log(student.id);
     this.router.navigate(['/students', student.id]);
   }
 

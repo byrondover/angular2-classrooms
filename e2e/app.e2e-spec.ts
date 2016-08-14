@@ -1,10 +1,10 @@
-import { Angular2ClassroomsStaticPage } from './app.po';
+import { Angular2ClassroomsPage } from './app.po';
 
-describe('angular2-classrooms-static App', function() {
-  let page: Angular2ClassroomsStaticPage;
+describe('angular2-classrooms App', function() {
+  let page: Angular2ClassroomsPage;
 
   beforeEach(() => {
-    page = new Angular2ClassroomsStaticPage();
+    page = new Angular2ClassroomsPage();
   });
 
   it('should display message saying app works', () => {

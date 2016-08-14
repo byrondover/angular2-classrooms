@@ -1,4 +1,4 @@
-export class Angular2ClassroomsStaticPage {
+export class Angular2ClassroomsPage {
   navigateTo() {
     return browser.get('/');
   }
